@@ -36,8 +36,8 @@ const CONFIG = {
         assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi ro của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
         advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
         actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
-    }
-]
+    ]
+};
 
 const QUESTIONS = [
     {
@@ -414,11 +414,32 @@ function renderResult() {
                     <span style="font-size: 0.8rem; font-weight: 500;">/ 60 ĐIỂM</span>
                 </div>
                 <div class="level-badge">${level.name}</div>
-                <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 500;">${level.desc}</p>
-                <div class="level-advice" style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 4px solid var(--primary-color); text-align: left;">
-                    <p style="font-size: 0.95rem; color: #EEE;"><strong>Nhận xét:</strong> ${level.advice}</p>
+                <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 700; color: var(--primary-color);">${level.desc}</p>
+                
+                <div class="result-details" style="text-align: left; margin-top: 2rem;">
+                    <div class="result-section" style="margin-bottom: 1.5rem;">
+                        <h3 style="font-size: 1rem; color: #FFF; margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <span style="margin-right: 8px;">📊</span> Đánh giá năng lực
+                        </h3>
+                        <p style="font-size: 0.95rem; color: #BBB; line-height: 1.6;">${level.assessment}</p>
+                    </div>
+
+                    <div class="result-section" style="margin-bottom: 1.5rem; padding: 1.2rem; background: rgba(241, 110, 46, 0.1); border-left: 4px solid var(--primary-color); border-radius: 0 12px 12px 0;">
+                        <h3 style="font-size: 1rem; color: var(--primary-color); margin-bottom: 0.5rem; display: flex; align-items: center;">
+                            <span style="margin-right: 8px;">💡</span> Lời khuyên
+                        </h3>
+                        <p style="font-size: 0.95rem; color: #EEE; font-style: italic;">${level.advice}</p>
+                    </div>
+
+                    <div class="result-section" style="padding: 1.2rem; background: rgba(255, 255, 255, 0.05); border: 1px dashed rgba(255,255,255,0.2); border-radius: 12px;">
+                        <h3 style="font-size: 1rem; color: #FFF; margin-bottom: 0.8rem; display: flex; align-items: center;">
+                            <span style="margin-right: 8px;">🚀</span> Kế hoạch hành động
+                        </h3>
+                        <p style="font-size: 0.95rem; color: #FFF; line-height: 1.6;">${level.actionPlan}</p>
+                    </div>
                 </div>
-                <hr style="margin: 2rem 0; opacity: 0.1;">
+
+                <hr style="margin: 2.5rem 0; opacity: 0.1;">
                 <p class="description">Dữ liệu của bạn đã được lưu trữ an toàn. Chúng tôi sẽ liên hệ sớm nếu có lộ trình đào tạo phù hợp.</p>
                 <button class="btn btn-primary" onclick="location.reload()">Làm lại khảo sát</button>
             </div>
