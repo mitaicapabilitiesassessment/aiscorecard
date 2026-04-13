@@ -1,11 +1,11 @@
 :root {
     --primary-color: #F16E2E;
     --primary-hover: #d95d1f;
-    --bg-dark: #121212;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --bg-dark: #1E1E1E; /* Slightly lighter background */
+    --card-bg: rgba(255, 255, 255, 0.07);
     --text-main: #FFFFFF;
-    --text-muted: #A0A0A0;
-    --border-radius: 20px;
+    --text-muted: #B0B0B0;
+    --border-radius: 23px; /* IZIon24 style */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -145,14 +145,21 @@ input:focus {
 }
 
 .option-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.1);
     border-color: rgba(241, 110, 46, 0.5);
 }
 
 .option-item.selected {
-    background: rgba(241, 110, 46, 0.15);
+    background: rgba(241, 110, 46, 0.2);
     border-color: var(--primary-color);
+    box-shadow: 0 0 20px rgba(241, 110, 46, 0.4);
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
 }
 
 /* Buttons */

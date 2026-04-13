@@ -1,6 +1,6 @@
 const CONFIG = {
     // Replace with your Google Apps Script Web App URL
-    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbw7AtjsHjgHyX91GdvJMcpnQJ2_yXiDj-LXz8UTit8BQ2yD04ZnqgmUYanMiZo6vS_c/exec',
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz3n2T_1f-jAifp3-tInZp8Or2BdcDu-bHaGHApXtzM-521xQwvDI011mzGcH4uVdsX_g/exec',
     LEVELS: [
         { min: 0, max: 10, name: 'AI Beginner', desc: 'Chưa sử dụng AI' },
         { min: 11, max: 20, name: 'AI Explorer', desc: 'Bắt đầu sử dụng' },
@@ -207,9 +207,9 @@ function renderIntro() {
                 <h1>AI Capability Scorecard</h1>
                 <p class="description">Đo lường năng lực sử dụng AI của bạn để tối ưu hiệu quả công việc và định hướng tương lai.</p>
                 <div class="benefits" style="text-align: left; margin-bottom: 2rem;">
-                    <p style="margin-bottom: 0.5rem;">✅ Đánh giá mức độ thành thạo AI</p>
-                    <p style="margin-bottom: 0.5rem;">✅ Xác định các kỹ năng cần cải thiện</p>
-                    <p>✅ Nhận lộ trình phát triển phù hợp</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Đánh giá được xây dựng bởi Massachusetts Institute of Technology</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Bộ câu hỏi khảo sát thuộc nghiên cứu khoa học đăng trên tập chí MDPI</p>
+                    <p>🧑‍🏫Thuộc nghiên cứu đánh giá tác động của AI được thực hiện bởi 3 nhà nghiên cứu Sabina-Cristiana Necula, Doina Fotache và Emanuel Rieder</p>
                 </div>
                 <button class="btn btn-primary w-100" onclick="setState({ step: 'info' })">Bắt đầu khảo sát</button>
             </div>
@@ -246,8 +246,8 @@ function handleInfoSubmit() {
     const email = document.getElementById('user-email').value;
     const position = document.getElementById('user-position').value;
 
-    if (!name || !email || !position) {
-        alert('Vui lòng điền đầy đủ thông tin!');
+    if (!name || !email) {
+        alert('Vui lòng điền thông tin Họ tên và Email!');
         return;
     }
 
@@ -402,11 +402,24 @@ async function submitToSheets() {
         timestamp: new Date().toISOString(),
         name: state.user.name,
         email: state.user.email,
-        position: state.user.position,
+        position: state.user.position || 'N/A',
         score: score,
-        level: level,
-        answers: JSON.stringify(state.answers)
+        level: level
     };
+
+    // Split each question into its own column
+    QUESTIONS.forEach(q => {
+        const ans = state.answers[q.id];
+        let displayAns = '';
+        if (q.type === 'single') {
+            displayAns = q.options[ans]?.text || '';
+        } else if (q.type === 'multiple') {
+            displayAns = (ans || []).map(idx => q.options[idx].text).join(', ');
+        } else if (q.type === 'scale') {
+            displayAns = ans || '';
+        }
+        data[`Q${q.id}`] = displayAns;
+    });
 
     if (CONFIG.SCRIPT_URL === 'https://script.google.com/macros/library/d/1mmy8_IgdJd2s1I9PzXP1385ZlWV6_xvkHOiHnCKliCA2hYDGKytV5-xL/1') {
         console.log('Sheet URL not set, data:', data);
