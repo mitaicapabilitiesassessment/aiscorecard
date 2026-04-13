@@ -2,13 +2,42 @@ const CONFIG = {
     // Replace with your Google Apps Script Web App URL
     SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz3n2T_1f-jAifp3-tInZp8Or2BdcDu-bHaGHApXtzM-521xQwvDI011mzGcH4uVdsX_g/exec',
     LEVELS: [
-        { min: 0, max: 10, name: 'AI Beginner', desc: 'Chưa sử dụng AI' },
-        { min: 11, max: 20, name: 'AI Explorer', desc: 'Bắt đầu sử dụng' },
-        { min: 21, max: 35, name: 'AI Practitioner', desc: 'Sử dụng thường xuyên' },
-        { min: 36, max: 50, name: 'AI Advanced', desc: 'Sử dụng nâng cao' },
-        { min: 51, max: 60, name: 'Leading AI', desc: 'Dẫn dắt AI' }
-    ]
-};
+    { 
+        min: 0, max: 10, name: 'AI Beginner', 
+        desc: 'Chưa sử dụng AI',
+        assessment: 'Bạn đang ở vạch xuất phát. Bạn có thể chưa từng tương tác với các mô hình ngôn ngữ lớn hoặc mới chỉ nghe nói về AI mà chưa thực hành. Tiềm năng tăng năng suất của bạn còn rất lớn.',
+        advice: 'Bạn mới bắt đầu hành trình khám phá AI. Hãy thử nghiệm các câu hỏi cơ bản trên ChatGPT hoặc Gemini để thấy khả năng của chúng.',
+        actionPlan: 'Tạo tài khoản miễn phí trên ChatGPT hoặc Claude.ai. Dành 10 phút mỗi ngày để hỏi bất kỳ điều gì bạn thắc mắc. Hãy bắt đầu bằng câu lệnh: "Giải thích cho tôi về [chủ đề công việc] một cách đơn giản".'
+    },
+    { 
+        min: 11, max: 20, name: 'AI Explorer', 
+        desc: 'Bắt đầu sử dụng',
+        assessment: 'Bạn đã vượt qua rào cản tâm lý ban đầu. Bạn biết cách đặt câu hỏi nhưng phong cách sử dụng còn ngẫu hứng, kết quả đôi khi chưa nhất quán. Bạn đang dùng AI như một công cụ tìm kiếm thay thế.',
+        advice: 'Bạn đã bước đầu làm quen với AI. Hãy thử ứng dụng AI vào việc soạn thảo email hoặc tóm tắt tài liệu để tiết kiệm thời gian hàng ngày.',
+        actionPlan: 'Biến AI thành trợ lý cá nhân. Khi cần viết email, hãy dùng prompt: "Soạn giúp tôi một email lịch sự về [nội dung], giọng văn chuyên nghiệp". Thực hành tóm tắt các bài báo dài thành 3 gạch đầu dòng.'
+    },
+    { 
+        min: 21, max: 35, name: 'AI Practitioner', 
+        desc: 'Sử dụng thường xuyên',
+        assessment: 'Bạn đã tích hợp AI vào guồng quay công việc hàng ngày. Bạn hiểu rằng AI không phải lúc nào cũng đúng và bắt đầu chỉnh sửa câu trả lời. Tuy nhiên, bạn vẫn đang sử dụng các prompt đơn giản, chưa khai thác hết chiều sâu.',
+        advice: 'Bạn sử dụng AI khá thành thạo. Hãy tìm hiểu sâu về kỹ thuật viết Prompt (Prompt Engineering) để nâng cao chất lượng đầu ra.',
+        actionPlan: 'Học cấu trúc prompt: "Vai trò - Ngữ cảnh - Yêu cầu - Định dạng đầu ra". Ví dụ: "Bạn là chuyên viên phân tích dữ liệu cấp cao. Hãy phân tích ưu nhược điểm của dự án A (dữ liệu đính kèm). Trình bày dưới dạng bảng SWOT và đề xuất 3 hành động tiếp theo".'
+    },
+    { 
+        min: 36, max: 50, name: 'AI Advanced', 
+        desc: 'Sử dụng nâng cao',
+        assessment: 'Bạn không chỉ đặt câu hỏi hay mà còn biết cách cung cấp dữ liệu và ngữ cảnh phức tạp cho AI. Bạn có tư duy phản biện tốt với câu trả lời của AI. Bạn là người giải quyết vấn đề hiệu quả trong tập thể.',
+        advice: 'Bạn có kỹ năng AI chuyên sâu. Hãy bắt đầu xây dựng các quy trình tự động hóa (Workflow) để tối ưu các tác vụ phức tạp.',
+        actionPlan: 'Kết hợp AI với các công cụ tự động hóa khác (Zapier, Make.com, n8n). Thử thách: Tạo một workflow tự động đọc file báo cáo hàng tuần, yêu cầu AI tóm tắt và gửi thẳng vào Slack hoặc Email cho sếp.'
+    },
+    { 
+        min: 51, max: 60, name: 'AI Leader', 
+        desc: 'Dẫn dắt AI',
+        assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi ro của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
+        advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
+        actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
+    }
+]
 
 const QUESTIONS = [
     {
@@ -385,7 +414,10 @@ function renderResult() {
                     <span style="font-size: 0.8rem; font-weight: 500;">/ 60 ĐIỂM</span>
                 </div>
                 <div class="level-badge">${level.name}</div>
-                <p style="margin-top: 1.5rem; font-size: 1.1rem;">${level.desc}</p>
+                <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 500;">${level.desc}</p>
+                <div class="level-advice" style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 15px; border-left: 4px solid var(--primary-color); text-align: left;">
+                    <p style="font-size: 0.95rem; color: #EEE;"><strong>Nhận xét:</strong> ${level.advice}</p>
+                </div>
                 <hr style="margin: 2rem 0; opacity: 0.1;">
                 <p class="description">Dữ liệu của bạn đã được lưu trữ an toàn. Chúng tôi sẽ liên hệ sớm nếu có lộ trình đào tạo phù hợp.</p>
                 <button class="btn btn-primary" onclick="location.reload()">Làm lại khảo sát</button>
