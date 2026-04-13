@@ -1,44 +1,43 @@
 const CONFIG = {
-    // Thay URL App Script của bạn vào đây
+    // Replace with your Google Apps Script Web App URL
     SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz3n2T_1f-jAifp3-tInZp8Or2BdcDu-bHaGHApXtzM-521xQwvDI011mzGcH4uVdsX_g/exec',
     LEVELS: [
-        { 
-            min: 0, max: 10, name: 'AI Beginner', 
-            desc: 'Chưa sử dụng AI',
-            assessment: 'Bạn đang ở vạch xuất phát. Bạn có thể chưa từng tương tác với các mô hình ngôn ngữ lớn hoặc mới chỉ nghe nói về AI mà chưa thực hành. Tiềm năng tăng năng suất của bạn còn rất lớn.',
-            advice: 'Bạn mới bắt đầu hành trình khám phá AI. Hãy thử nghiệm các câu hỏi cơ bản trên ChatGPT hoặc Gemini để thấy khả năng của chúng.',
-            actionPlan: 'Tạo tài khoản miễn phí trên ChatGPT hoặc Claude.ai. Dành 10 phút mỗi ngày để hỏi bất kỳ điều gì bạn thắc mắc. Hãy bắt đầu bằng câu lệnh: "Giải thích cho tôi về [chủ đề công việc] một cách đơn giản".'
-        },
-        { 
-            min: 11, max: 20, name: 'AI Explorer', 
-            desc: 'Bắt đầu sử dụng',
-            assessment: 'Bạn đã vượt qua rào cản tâm lý ban đầu. Bạn biết cách đặt câu hỏi nhưng phong cách sử dụng còn ngẫu hứng, kết quả đôi khi chưa nhất quán. Bạn đang dùng AI như một công cụ tìm kiếm thay thế.',
-            advice: 'Bạn đã bước đầu làm quen với AI. Hãy thử ứng dụng AI vào việc soạn thảo email hoặc tóm tắt tài liệu để tiết kiệm thời gian hàng ngày.',
-            actionPlan: 'Biến AI thành trợ lý cá nhân. Khi cần viết email, hãy dùng prompt: "Soạn giúp tôi một email lịch sự về [nội dung], giọng văn chuyên nghiệp". Thực hành tóm tắt các bài báo dài thành 3 gạch đầu dòng.'
-        },
-        { 
-            min: 21, max: 35, name: 'AI Practitioner', 
-            desc: 'Sử dụng thường xuyên',
-            assessment: 'Bạn đã tích hợp AI vào guồng quay công việc hàng ngày. Bạn hiểu rằng AI không phải lúc nào cũng đúng và bắt đầu chỉnh sửa câu trả lời. Tuy nhiên, bạn vẫn đang sử dụng các prompt đơn giản, chưa khai thác hết chiều sâu.',
-            advice: 'Bạn sử dụng AI khá thành thạo. Hãy tìm hiểu sâu về kỹ thuật viết Prompt (Prompt Engineering) để nâng cao chất lượng đầu ra.',
-            actionPlan: 'Học cấu trúc prompt: "Vai trò - Ngữ cảnh - Yêu cầu - Định dạng đầu ra". Ví dụ: "Bạn là chuyên viên phân tích dữ liệu cấp cao. Hãy phân tích ưu nhược điểm của dự án A (dữ liệu đính kèm). Trình bày dưới dạng bảng SWOT và đề xuất 3 hành động tiếp theo".'
-        },
-        { 
-            min: 36, max: 50, name: 'AI Advanced', 
-            desc: 'Sử dụng nâng cao',
-            assessment: 'Bạn không chỉ đặt câu hỏi hay mà còn biết cách cung cấp dữ liệu và ngữ cảnh phức tạp cho AI. Bạn có tư duy phản biện tốt với câu trả lời của AI. Bạn là người giải quyết vấn đề hiệu quả trong tập thể.',
-            advice: 'Bạn có kỹ năng AI chuyên sâu. Hãy bắt đầu xây dựng các quy trình tự động hóa (Workflow) để tối ưu các tác vụ phức tạp.',
-            actionPlan: 'Kết hợp AI với các công cụ tự động hóa khác (Zapier, Make.com, n8n). Thử thách: Tạo một workflow tự động đọc file báo cáo hàng tuần, yêu cầu AI tóm tắt và gửi thẳng vào Slack hoặc Email cho sếp.'
-        },
-        { 
-            min: 51, max: 100, name: 'AI Leader', 
-            desc: 'Dẫn dắt AI',
-            assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi ro của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
-            advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
-            actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
-        }
-    ]
-};
+    { 
+        min: 0, max: 10, name: 'AI Beginner', 
+        desc: 'Chưa sử dụng AI',
+        assessment: 'Bạn đang ở vạch xuất phát. Bạn có thể chưa từng tương tác với các mô hình ngôn ngữ lớn hoặc mới chỉ nghe nói về AI mà chưa thực hành. Tiềm năng tăng năng suất của bạn còn rất lớn.',
+        advice: 'Bạn mới bắt đầu hành trình khám phá AI. Hãy thử nghiệm các câu hỏi cơ bản trên trên các công cụ AI phổ biến hiện nay như ChatGPT, Gemini hoặc Claude để thấy khả năng của chúng.',
+        actionPlan: 'Tạo tài khoản miễn phí trên ChatGPT hoặc Claude.ai. Dành 10 phút mỗi ngày để hỏi bất kỳ điều gì bạn thắc mắc. Hãy bắt đầu bằng câu lệnh: "Giải thích cho tôi về [chủ đề công việc] một cách đơn giản".'
+    },
+    { 
+        min: 11, max: 20, name: 'AI Explorer', 
+        desc: 'Bắt đầu khám phá AI',
+        assessment: 'Bạn đã vượt qua rào cản tâm lý ban đầu. Bạn biết cách đặt câu hỏi cho AI nhưng phong cách sử dụng còn ngẫu hứng, kết quả đôi khi chưa nhất quán. Bạn đang dùng AI như một công cụ tìm kiếm thay thế.',
+        advice: 'Bạn đã bước đầu làm quen với AI. Hãy thử ứng dụng AI vào việc soạn thảo email hoặc tóm tắt tài liệu để tiết kiệm thời gian hàng ngày.',
+        actionPlan: 'Biến AI thành trợ lý cá nhân. Khi cần viết email, hãy dùng prompt: "Soạn giúp tôi một email lịch sự về [nội dung], giọng văn chuyên nghiệp". Thực hành tóm tắt các bài báo dài thành 3 gạch đầu dòng.'
+    },
+    { 
+        min: 21, max: 35, name: 'AI Practitioner', 
+        desc: 'Sử dụng AI thường xuyên',
+        assessment: 'Bạn đã tích hợp AI vào guồng quay công việc hàng ngày. Bạn hiểu rằng AI không phải lúc nào cũng đúng và bắt đầu chỉnh sửa câu trả lời. Tuy nhiên, bạn vẫn đang sử dụng các prompt đơn giản, chưa khai thác hết chiều sâu.',
+        advice: 'Bạn sử dụng AI khá thành thạo. Hãy tìm hiểu sâu về kỹ thuật viết Prompt (Prompt Engineering) để nâng cao chất lượng đầu ra.',
+        actionPlan: 'Học cấu trúc prompt: "Vai trò - Ngữ cảnh - Yêu cầu - Định dạng đầu ra". Ví dụ: "Bạn là chuyên viên phân tích dữ liệu cấp cao. Hãy phân tích ưu nhược điểm của dự án A (dữ liệu đính kèm). Trình bày dưới dạng bảng SWOT và đề xuất 3 hành động tiếp theo".'
+    },
+    { 
+        min: 36, max: 50, name: 'AI Advanced', 
+        desc: 'Sử dụng AI chuyên sâu',
+        assessment: 'Bạn không chỉ đặt câu hỏi hay mà còn biết cách cung cấp dữ liệu và ngữ cảnh phức tạp cho AI. Bạn có tư duy phản biện tốt với câu trả lời của AI. Bạn là người giải quyết vấn đề hiệu quả trong tập thể.',
+        advice: 'Bạn có kỹ năng AI chuyên sâu. Hãy bắt đầu xây dựng các quy trình tự động hóa (Workflow) để tối ưu các tác vụ phức tạp.',
+        actionPlan: 'Kết hợp AI với các công cụ tự động hóa khác (Zapier, Make.com, n8n). Thử thách: Tạo một workflow tự động đọc file báo cáo hàng tuần, yêu cầu AI tóm tắt nội dung và gửi trực tiếp nhận định qua Email cho Quản lý.'
+    },
+    { 
+        min: 51, max: 60, name: 'AI Leader', 
+        desc: 'Dẫn đầu xu hướng ứng dụng AI',
+        assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi ro của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
+        advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
+        actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
+    }
+];
 
 const QUESTIONS = [
     {
@@ -68,7 +67,7 @@ const QUESTIONS = [
     {
         id: 3,
         group: "Nhóm 1 — Mức độ sử dụng AI",
-        text: "Bạn sử dụng AI bao lâu?",
+        text: "Bạn đã sử dụng AI bao lâu?",
         type: "single",
         options: [
             { text: "Chưa từng", points: 0 },
@@ -81,7 +80,7 @@ const QUESTIONS = [
     {
         id: 4,
         group: "Nhóm 2 — Mức độ thành thạo AI",
-        text: "Bạn đánh giá mức độ thành thạo AI (Thang 1–5)?",
+        text: "Bạn đánh giá mức độ thành thạo AI (Level 1:Mới bắt đầu; Level 2:Cơ bản; Level: Trung bình; Level 4: Thành thạo; Level 5: Chuyên gia)?",
         type: "scale",
         min: 1,
         max: 5,
@@ -96,8 +95,8 @@ const QUESTIONS = [
             { text: "Viết email", points: 1 },
             { text: "Tạo nội dung", points: 1 },
             { text: "Phân tích dữ liệu", points: 2 },
+            { text: "Viết prompt nâng cao", points: 2 },
             { text: "Tự động hóa", points: 3 },
-            { text: "Viết prompt nâng cao", points: 3 },
             { text: "Tạo workflow AI", points: 4 }
         ],
         maxPoints: 10
@@ -126,7 +125,8 @@ const QUESTIONS = [
             { text: "1–2h/ngày", points: 3 },
             { text: "2–3h/ngày", points: 4 },
             { text: "> 3h/ngày", points: 5 }
-        ]
+        ],
+        hint: "💡 Mức tiết kiệm trung bình của người dùng AI là 40-60 phút/ngày."
     },
     {
         id: 8,
@@ -155,7 +155,7 @@ const QUESTIONS = [
     {
         id: 10,
         group: "Nhóm 4 — AI mindset & innovation",
-        text: "Bạn có đề xuất ứng dụng AI?",
+        text: "Bạn có đề xuất ứng dụng AI trong công việc?",
         type: "single",
         options: [
             { text: "Không", points: 0 },
@@ -165,47 +165,68 @@ const QUESTIONS = [
         ]
     },
     {
-        id: 11,
-        group: "Nhóm 5 — AI nâng cao",
-        text: "Bạn đã sử dụng AI nào? (Mỗi công cụ 1 điểm)",
-        type: "multiple",
-        options: [
-            { text: "ChatGPT", points: 1 },
-            { text: "Copilot", points: 1 },
-            { text: "Claude", points: 1 },
-            { text: "Gemini", points: 1 },
-            { text: "Notion AI", points: 1 },
-            { text: "Perplexity", points: 1 },
-            { text: "Zapier AI", points: 1 },
-            { text: "Make AI", points: 1 }
-        ]
-    },
+    id: 11,
+    group: "Nhóm 5 — AI nâng cao",
+    text: "Bạn đã sử dụng AI nào? (Mỗi công cụ 1 điểm)",
+    type: "multiple",
+    options: [
+        // Chatbot & Mô hình ngôn ngữ
+        { text: "ChatGPT", points: 1 },
+        { text: "Claude", points: 1 },
+        { text: "Gemini", points: 1 },
+        { text: "DeepSeek", points: 1 },
+        { text: "Copilot", points: 1 },
+        { text: "Perplexity", points: 1 },
+        // Tạo ảnh & Video
+        { text: "Midjourney / DALL·E 3", points: 1 },
+        { text: "Runway / Descript", points: 1 },
+        // Tạo âm thanh
+        { text: "ElevenLabs / Suno", points: 1 },
+        // Viết & Tối ưu nội dung
+        { text: "Notion AI", points: 1 },
+        { text: "Grammarly / Wordtune", points: 1 },
+        // Tự động hóa
+        { text: "Zapier AI", points: 1 },
+        { text: "Make AI", points: 1 },
+        // Lập trình
+        { text: "Cursor / Claude Code", points: 1 }
+    ]
+},
     {
-        id: 12,
-        group: "Nhóm 5 — AI nâng cao",
-        text: "Bạn đã làm gì với AI? (Mỗi cái 2 điểm)",
-        type: "multiple",
-        options: [
-            { text: "Automation", points: 2 },
-            { text: "Chatbot nội bộ", points: 2 },
-            { text: "AI workflow", points: 2 },
-            { text: "AI dashboard", points: 2 },
-            { text: "AI training", points: 2 }
-        ]
-    }
+    id: 12,
+    group: "Nhóm 5 — AI nâng cao",
+    text: "Bạn đã làm gì với AI? (Mỗi hoạt động 2 điểm)",
+    type: "multiple",
+    options: [
+        { text: "Automation (tự động hóa tác vụ đơn lẻ)", points: 2 },
+        { text: "Chatbot nội bộ", points: 2 },
+        { text: "AI workflow (chuỗi tự động hóa)", points: 2 },
+        { text: "AI dashboard (báo cáo thông minh)", points: 2 },
+        { text: "AI training (đào tạo nội bộ về AI)", points: 2 },
+        { text: "AI Agent / Trợ lý tự hành", points: 2 },
+        { text: "RAG / Tìm kiếm tài liệu nội bộ", points: 2 },
+        { text: "Fine‑tuning / Huấn luyện mô hình riêng", points: 2 },
+        { text: "Multimodal AI (kết hợp văn bản, ảnh, âm thanh)", points: 2 },
+        { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 }
+    ]
+}
 ];
 
 let state = {
-    step: 'intro',
+    step: 'intro', // intro, info, question, result
     currentQuestionIndex: 0,
-    user: { name: '', email: '', position: '' },
-    answers: {}
+    user: {
+        name: '',
+        email: '',
+        position: ''
+    },
+    answers: {} // { questionId: value }
 };
 
 const dom = {
-    get main() { return document.getElementById('main-content'); },
-    get progressBar() { return document.getElementById('progress-bar'); },
-    get progressWrapper() { return document.getElementById('progress-bar-wrapper'); }
+    main: document.getElementById('main-content'),
+    progressBar: document.getElementById('progress-bar'),
+    progressWrapper: document.getElementById('progress-bar-wrapper')
 };
 
 function setState(newState) {
@@ -214,24 +235,28 @@ function setState(newState) {
 }
 
 function render() {
-    if (!dom.main) return;
-    if (state.step === 'intro') renderIntro();
-    else if (state.step === 'info') renderInfoForm();
-    else if (state.step === 'question') renderQuestion();
-    else if (state.step === 'result') renderResult();
+    if (state.step === 'intro') {
+        renderIntro();
+    } else if (state.step === 'info') {
+        renderInfoForm();
+    } else if (state.step === 'question') {
+        renderQuestion();
+    } else if (state.step === 'result') {
+        renderResult();
+    }
 }
 
 function renderIntro() {
-    if (dom.progressWrapper) dom.progressWrapper.style.display = 'none';
+    dom.progressWrapper.style.display = 'none';
     dom.main.innerHTML = `
         <div class="screen intro-screen text-center">
             <div class="card">
                 <h1>AI Capability Scorecard</h1>
                 <p class="description">Đo lường năng lực sử dụng AI của bạn để tối ưu hiệu quả công việc và định hướng tương lai.</p>
                 <div class="benefits" style="text-align: left; margin-bottom: 2rem;">
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫 Đánh giá được xây dựng bởi Massachusetts Institute of Technology</p>
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫 Bộ câu hỏi khảo sát thuộc nghiên cứu khoa học đăng trên tạp chí MDPI</p>
-                    <p>🧑‍🏫 Nghiên cứu đánh giá tác động của AI thực hiện bởi các chuyên gia Necula, Fotache và Rieder</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Đánh giá được xây dựng bởi Massachusetts Institute of Technology</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Bộ câu hỏi khảo sát thuộc nghiên cứu khoa học đăng trên tập chí MDPI</p>
+                    <p>🧑‍🏫Thuộc nghiên cứu đánh giá tác động của AI được thực hiện bởi 3 nhà nghiên cứu Sabina-Cristiana Necula, Doina Fotache và Emanuel Rieder</p>
                 </div>
                 <button class="btn btn-primary w-100" onclick="setState({ step: 'info' })">Bắt đầu khảo sát</button>
             </div>
@@ -254,7 +279,7 @@ function renderInfoForm() {
                     <input type="email" id="user-email" placeholder="example@izion24.com.vn" value="${state.user.email}">
                 </div>
                 <div class="form-group">
-                    <label>Chức vụ / Phòng ban (Tùy chọn)</label>
+                    <label>Chức vụ / Phòng ban</label>
                     <input type="text" id="user-position" placeholder="Marketing / Sales..." value="${state.user.position}">
                 </div>
                 <button class="btn btn-primary w-100" id="start-btn" onclick="handleInfoSubmit()">Tiếp tục</button>
@@ -281,11 +306,10 @@ function handleInfoSubmit() {
 
 function renderQuestion() {
     const q = QUESTIONS[state.currentQuestionIndex];
-    if (!q) return;
     const progress = ((state.currentQuestionIndex) / QUESTIONS.length) * 100;
     
-    if (dom.progressWrapper) dom.progressWrapper.style.display = 'block';
-    if (dom.progressBar) dom.progressBar.style.width = `${progress}%`;
+    dom.progressWrapper.style.display = 'block';
+    dom.progressBar.style.width = `${progress}%`;
 
     let optionsHtml = '';
     const currentAnswer = state.answers[q.id];
@@ -318,6 +342,13 @@ function renderQuestion() {
         </div>`;
     }
 
+    // Add hint if exists
+    if (q.hint) {
+        optionsHtml += `<div style="margin-top: 1.5rem; padding: 0.75rem 1rem; background: rgba(241, 110, 46, 0.1); border-left: 4px solid var(--primary-color); border-radius: 8px; font-size: 0.9rem; color: #EEE;">
+            ${q.hint}
+        </div>`;
+    }
+
     dom.main.innerHTML = `
         <div class="screen question-screen">
             <div class="group-label" style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;">
@@ -326,7 +357,7 @@ function renderQuestion() {
             <div class="card">
                 <h2>${q.text}</h2>
                 ${optionsHtml}
-                <div class="button-group" style="display: flex; justify-content: space-between; margin-top: 2rem;">
+                <div class="button-group">
                     <button class="btn" style="background: #333; color: white;" onclick="prevQuestion()">Quay lại</button>
                     <button class="btn btn-primary" onclick="nextQuestion()" ${currentAnswer === undefined ? 'disabled' : ''}>${state.currentQuestionIndex === QUESTIONS.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}</button>
                 </div>
@@ -390,20 +421,24 @@ function calculateScore() {
 function renderResult() {
     const score = calculateScore();
     let level = CONFIG.LEVELS.find(l => score >= l.min && score <= l.max);
-    if (!level && score > 60) level = CONFIG.LEVELS[CONFIG.LEVELS.length - 1];
+    
+    // Fallback for scores higher than 60
+    if (!level && score > 60) {
+        level = CONFIG.LEVELS[CONFIG.LEVELS.length - 1];
+    }
     if (!level) level = CONFIG.LEVELS[0];
     
-    if (dom.progressBar) dom.progressBar.style.width = `100%`;
+    dom.progressBar.style.width = `100%`;
     dom.main.innerHTML = `
         <div class="screen result-screen text-center">
             <div class="card">
                 <h2>Kết quả của bạn</h2>
                 <p class="description">Chúc mừng bạn đã hoàn thành khảo sát!</p>
-                <div class="score-circle" style="width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary-color); display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 2rem auto;">
-                    <span class="score-value" style="font-size: 3rem; font-weight: 800;">${score}</span>
+                <div class="score-circle">
+                    <span class="score-value">${score}</span>
                     <span style="font-size: 0.8rem; font-weight: 500;">/ 60 ĐIỂM</span>
                 </div>
-                <div class="level-badge" style="background: var(--primary-color); display: inline-block; padding: 0.5rem 1.5rem; border-radius: 30px; font-weight: 700; color: white;">${level.name}</div>
+                <div class="level-badge">${level.name}</div>
                 <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 700; color: var(--primary-color);">${level.desc}</p>
                 
                 <div class="result-details" style="text-align: left; margin-top: 2rem;">
@@ -430,7 +465,7 @@ function renderResult() {
                 </div>
 
                 <hr style="margin: 2.5rem 0; opacity: 0.1;">
-                <p class="description">Dữ liệu của bạn đã được lưu trữ an toàn.</p>
+                <p class="description">Dữ liệu của bạn đã được lưu trữ an toàn. Chúng tôi sẽ liên hệ sớm nếu có lộ trình đào tạo phù hợp.</p>
                 <button class="btn btn-primary" onclick="location.reload()">Làm lại khảo sát</button>
             </div>
         </div>
@@ -450,26 +485,37 @@ async function submitToSheets() {
         level: level
     };
 
+    // Split each question into its own column
     QUESTIONS.forEach(q => {
         const ans = state.answers[q.id];
         let displayAns = '';
-        if (q.type === 'single') displayAns = q.options[ans]?.text || '';
-        else if (q.type === 'multiple') displayAns = (ans || []).map(idx => q.options[idx].text).join(', ');
-        else if (q.type === 'scale') displayAns = ans || '';
+        if (q.type === 'single') {
+            displayAns = q.options[ans]?.text || '';
+        } else if (q.type === 'multiple') {
+            displayAns = (ans || []).map(idx => q.options[idx].text).join(', ');
+        } else if (q.type === 'scale') {
+            displayAns = ans || '';
+        }
         data[`Q${q.id}`] = displayAns;
     });
 
-    if (!CONFIG.SCRIPT_URL || CONFIG.SCRIPT_URL.includes('YOUR_GOOGLE_SCRIPT_URL')) return;
+    if (CONFIG.SCRIPT_URL === 'https://script.google.com/macros/library/d/1mmy8_IgdJd2s1I9PzXP1385ZlWV6_xvkHOiHnCKliCA2hYDGKytV5-xL/1') {
+        console.log('Sheet URL not set, data:', data);
+        return;
+    }
 
     try {
         await fetch(CONFIG.SCRIPT_URL, {
             method: 'POST',
-            mode: 'no-cors',
+            mode: 'no-cors', // standard for Apps Script web apps
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
-    } catch (e) { console.error(e); }
+        console.log('Submitted successfully');
+    } catch (e) {
+        console.error('Error submitting:', e);
+    }
 }
 
-// Chạy khi DOM đã sẵn sàng
-document.addEventListener('DOMContentLoaded', render);
+// Initial render
+render();
