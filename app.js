@@ -195,6 +195,7 @@ const QUESTIONS = [
         text: "Bạn đã làm gì với AI?",
         type: "multiple",
         options: [
+            { text: "Chưa thực hiện hoạt động nào", points: 0, exclusive: true },
             { text: "Automation (tự động hóa tác vụ đơn lẻ)", points: 2 },
             { text: "Chatbot nội bộ", points: 2 },
             { text: "AI workflow (chuỗi tự động hóa)", points: 2 },
@@ -204,8 +205,7 @@ const QUESTIONS = [
             { text: "RAG / Tìm kiếm tài liệu nội bộ", points: 2 },
             { text: "Fine-tuning / Huấn luyện mô hình riêng", points: 2 },
             { text: "Multimodal AI (kết hợp văn bản, ảnh, âm thanh)", points: 2 },
-            { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 },
-            { text: "Chưa thực hiện hoạt động nào", points: 0, exclusive: true }
+            { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 }
         ]
     }
 ];
