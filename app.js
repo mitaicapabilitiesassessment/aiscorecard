@@ -37,7 +37,8 @@ const CONFIG = {
         advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
         actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
     }
-]
+    ]
+};
 
 // Question IDs and content
 const QUESTIONS = [
@@ -255,7 +256,8 @@ function renderIntro() {
                 <div class="benefits" style="text-align: left; margin-bottom: 2rem;">
                     <p style="margin-bottom: 0.5rem;">🧑‍🏫This survey made by Universitatea „Alexandru Ioan Cuza” din Iași</p>
                     <p style="margin-bottom: 0.5rem;">🧑‍🏫Survey questionnaire used in a scientific study published in an MDPI journal</p>
-                    <p>🧑‍🏫Part of a study evaluating the impact of AI conducted by three researchers: Sabina-Cristiana Necula, Doina Fotache, and Emanuel Rieder.</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Part of a study evaluating the impact of AI conducted by three researchers: Sabina-Cristiana Necula, Doina Fotache, and Emanuel Rieder.</p>
+                    <p>🧑‍🏫The survey has been localized and refined to suit businesses in Vietnam.</p>
                 </div>
                 <button class="btn btn-primary w-100" onclick="setState({ step: 'info' })">Bắt đầu khảo sát</button>
             </div>
