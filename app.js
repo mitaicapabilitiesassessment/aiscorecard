@@ -39,6 +39,7 @@ const CONFIG = {
     }
 ];
 
+// Question IDs and content
 const QUESTIONS = [
     {
         id: 1,
@@ -72,15 +73,15 @@ const QUESTIONS = [
         options: [
             { text: "Chưa từng", points: 0 },
             { text: "< 3 tháng", points: 1 },
-            { text: "3–6 tháng", points: 2 },
-            { text: "6–12 tháng", points: 3 },
+            { text: "3-6 tháng", points: 2 },
+            { text: "6-12 tháng", points: 3 },
             { text: "> 1 năm", points: 5 }
         ]
     },
     {
         id: 4,
         group: "Nhóm 2 — Mức độ thành thạo AI",
-        text: "Bạn đánh giá mức độ thành thạo AI (Level 1:Mới bắt đầu; Level 2:Cơ bản; Level: Trung bình; Level 4: Thành thạo; Level 5: Chuyên gia)?",
+        text: "Bạn đánh giá mức độ thành thạo AI (Level 1: Mới bắt đầu; Level 2: Cơ bản; Level 3: Trung bình; Level 4: Thành thạo; Level 5: Chuyên gia)?",
         type: "scale",
         min: 1,
         max: 5,
@@ -107,11 +108,11 @@ const QUESTIONS = [
         text: "AI giúp tăng hiệu suất bao nhiêu?",
         type: "single",
         options: [
-            { text: "0–20%", points: 1 },
-            { text: "20–40%", points: 2 },
-            { text: "40–60%", points: 3 },
-            { text: "60–80%", points: 4 },
-            { text: "80–100%", points: 5 }
+            { text: "0-20%", points: 1 },
+            { text: "20-40%", points: 2 },
+            { text: "40-60%", points: 3 },
+            { text: "60-80%", points: 4 },
+            { text: "80-100%", points: 5 }
         ]
     },
     {
@@ -122,8 +123,8 @@ const QUESTIONS = [
         options: [
             { text: "Không tiết kiệm", points: 0 },
             { text: "< 1h/ngày", points: 2 },
-            { text: "1–2h/ngày", points: 3 },
-            { text: "2–3h/ngày", points: 4 },
+            { text: "1-2h/ngày", points: 3 },
+            { text: "2-3h/ngày", points: 4 },
             { text: "> 3h/ngày", points: 5 }
         ],
         hint: "💡 Mức tiết kiệm trung bình của người dùng AI là 40-60 phút/ngày."
@@ -165,68 +166,59 @@ const QUESTIONS = [
         ]
     },
     {
-    id: 11,
-    group: "Nhóm 5 — AI nâng cao",
-    text: "Bạn đã sử dụng AI nào? (Mỗi công cụ 1 điểm)",
-    type: "multiple",
-    options: [
-        // Chatbot & Mô hình ngôn ngữ
-        { text: "ChatGPT", points: 1 },
-        { text: "Claude", points: 1 },
-        { text: "Gemini", points: 1 },
-        { text: "DeepSeek", points: 1 },
-        { text: "Copilot", points: 1 },
-        { text: "Perplexity", points: 1 },
-        // Tạo ảnh & Video
-        { text: "Midjourney / DALL·E 3", points: 1 },
-        { text: "Runway / Descript", points: 1 },
-        // Tạo âm thanh
-        { text: "ElevenLabs / Suno", points: 1 },
-        // Viết & Tối ưu nội dung
-        { text: "Notion AI", points: 1 },
-        { text: "Grammarly / Wordtune", points: 1 },
-        // Tự động hóa
-        { text: "Zapier AI", points: 1 },
-        { text: "Make AI", points: 1 },
-        // Lập trình
-        { text: "Cursor / Claude Code", points: 1 }
-    ]
-},
+        id: 11,
+        group: "Nhóm 5 — AI nâng cao",
+        text: "Bạn đã sử dụng AI nào? (Mỗi công cụ 1 điểm)",
+        type: "multiple",
+        options: [
+            { text: "ChatGPT", points: 1 },
+            { text: "Claude", points: 1 },
+            { text: "Gemini", points: 1 },
+            { text: "DeepSeek", points: 1 },
+            { text: "Copilot", points: 1 },
+            { text: "Perplexity", points: 1 },
+            { text: "Midjourney / DALL-E 3", points: 1 },
+            { text: "Runway / Descript", points: 1 },
+            { text: "ElevenLabs / Suno", points: 1 },
+            { text: "Notion AI", points: 1 },
+            { text: "Grammarly / Wordtune", points: 1 },
+            { text: "Zapier AI", points: 1 },
+            { text: "Make AI", points: 1 },
+            { text: "Cursor / Claude Code", points: 1 }
+        ]
+    },
     {
-    id: 12,
-    group: "Nhóm 5 — AI nâng cao",
-    text: "Bạn đã làm gì với AI? (Mỗi hoạt động 2 điểm)",
-    type: "multiple",
-    options: [
-        { text: "Automation (tự động hóa tác vụ đơn lẻ)", points: 2 },
-        { text: "Chatbot nội bộ", points: 2 },
-        { text: "AI workflow (chuỗi tự động hóa)", points: 2 },
-        { text: "AI dashboard (báo cáo thông minh)", points: 2 },
-        { text: "AI training (đào tạo nội bộ về AI)", points: 2 },
-        { text: "AI Agent / Trợ lý tự hành", points: 2 },
-        { text: "RAG / Tìm kiếm tài liệu nội bộ", points: 2 },
-        { text: "Fine‑tuning / Huấn luyện mô hình riêng", points: 2 },
-        { text: "Multimodal AI (kết hợp văn bản, ảnh, âm thanh)", points: 2 },
-        { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 }
-    ]
-}
+        id: 12,
+        group: "Nhóm 5 — AI nâng cao",
+        text: "Bạn đã làm gì với AI? (Mỗi hoạt động 2 điểm)",
+        type: "multiple",
+        options: [
+            { text: "Automation (tự động hóa tác vụ đơn lẻ)", points: 2 },
+            { text: "Chatbot nội bộ", points: 2 },
+            { text: "AI workflow (chuỗi tự động hóa)", points: 2 },
+            { text: "AI dashboard (báo cáo thông minh)", points: 2 },
+            { text: "AI training (đào tạo nội bộ về AI)", points: 2 },
+            { text: "AI Agent / Trợ lý tự hành", points: 2 },
+            { text: "RAG / Tìm kiếm tài liệu nội bộ", points: 2 },
+            { text: "Fine-tuning / Huấn luyện mô hình riêng", points: 2 },
+            { text: "Multimodal AI (kết hợp văn bản, ảnh, âm thanh)", points: 2 },
+            { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 }
+        ]
+    }
 ];
 
 let state = {
-    step: 'intro', // intro, info, question, result
+    step: 'intro',
     currentQuestionIndex: 0,
-    user: {
-        name: '',
-        email: '',
-        position: ''
-    },
-    answers: {} // { questionId: value }
+    user: { name: '', email: '', position: '' },
+    answers: {}
 };
 
-const dom = {
-    main: document.getElementById('main-content'),
-    progressBar: document.getElementById('progress-bar'),
-    progressWrapper: document.getElementById('progress-bar-wrapper')
+// DOM references will be populated after DOM level
+let dom = {
+    main: null,
+    progressBar: null,
+    progressWrapper: null
 };
 
 function setState(newState) {
@@ -235,19 +227,26 @@ function setState(newState) {
 }
 
 function render() {
-    if (state.step === 'intro') {
-        renderIntro();
-    } else if (state.step === 'info') {
-        renderInfoForm();
-    } else if (state.step === 'question') {
-        renderQuestion();
-    } else if (state.step === 'result') {
-        renderResult();
+    if (!dom.main) return;
+    
+    try {
+        if (state.step === 'intro') {
+            renderIntro();
+        } else if (state.step === 'info') {
+            renderInfoForm();
+        } else if (state.step === 'question') {
+            renderQuestion();
+        } else if (state.step === 'result') {
+            renderResult();
+        }
+    } catch (error) {
+        console.error("Render error:", error);
+        dom.main.innerHTML = `<div class="card"><p>Có lỗi xảy ra khi tải nội dung. Vui lòng tải lại trang.</p></div>`;
     }
 }
 
 function renderIntro() {
-    dom.progressWrapper.style.display = 'none';
+    if (dom.progressWrapper) dom.progressWrapper.style.display = 'none';
     dom.main.innerHTML = `
         <div class="screen intro-screen text-center">
             <div class="card">
@@ -306,10 +305,12 @@ function handleInfoSubmit() {
 
 function renderQuestion() {
     const q = QUESTIONS[state.currentQuestionIndex];
-    const progress = ((state.currentQuestionIndex) / QUESTIONS.length) * 100;
+    if (!q) return;
+
+    const progress = (state.currentQuestionIndex / QUESTIONS.length) * 100;
     
-    dom.progressWrapper.style.display = 'block';
-    dom.progressBar.style.width = `${progress}%`;
+    if (dom.progressWrapper) dom.progressWrapper.style.display = 'block';
+    if (dom.progressBar) dom.progressBar.style.width = `${progress}%`;
 
     let optionsHtml = '';
     const currentAnswer = state.answers[q.id];
@@ -342,7 +343,6 @@ function renderQuestion() {
         </div>`;
     }
 
-    // Add hint if exists
     if (q.hint) {
         optionsHtml += `<div style="margin-top: 1.5rem; padding: 0.75rem 1rem; background: rgba(241, 110, 46, 0.1); border-left: 4px solid var(--primary-color); border-radius: 8px; font-size: 0.9rem; color: #EEE;">
             ${q.hint}
@@ -359,7 +359,7 @@ function renderQuestion() {
                 ${optionsHtml}
                 <div class="button-group">
                     <button class="btn" style="background: #333; color: white;" onclick="prevQuestion()">Quay lại</button>
-                    <button class="btn btn-primary" onclick="nextQuestion()" ${currentAnswer === undefined ? 'disabled' : ''}>${state.currentQuestionIndex === QUESTIONS.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}</button>
+                    <button class="btn btn-primary" onclick="nextQuestion()" ${currentAnswer === undefined || (q.type === 'multiple' && currentAnswer.length === 0) ? 'disabled' : ''}>${state.currentQuestionIndex === QUESTIONS.length - 1 ? 'Hoàn thành' : 'Tiếp theo'}</button>
                 </div>
             </div>
         </div>
@@ -422,18 +422,14 @@ function renderResult() {
     const score = calculateScore();
     let level = CONFIG.LEVELS.find(l => score >= l.min && score <= l.max);
     
-    // Fallback for scores higher than 60
-    if (!level && score > 60) {
-        level = CONFIG.LEVELS[CONFIG.LEVELS.length - 1];
-    }
+    if (!level && score > 60) level = CONFIG.LEVELS[CONFIG.LEVELS.length - 1];
     if (!level) level = CONFIG.LEVELS[0];
     
-    dom.progressBar.style.width = `100%`;
+    if (dom.progressBar) dom.progressBar.style.width = `100%`;
     dom.main.innerHTML = `
         <div class="screen result-screen text-center">
             <div class="card">
                 <h2>Kết quả của bạn</h2>
-                <p class="description">Chúc mừng bạn đã hoàn thành khảo sát!</p>
                 <div class="score-circle">
                     <span class="score-value">${score}</span>
                     <span style="font-size: 0.8rem; font-weight: 500;">/ 60 ĐIỂM</span>
@@ -465,7 +461,7 @@ function renderResult() {
                 </div>
 
                 <hr style="margin: 2.5rem 0; opacity: 0.1;">
-                <p class="description">Dữ liệu của bạn đã được lưu trữ an toàn. Chúng tôi sẽ liên hệ sớm nếu có lộ trình đào tạo phù hợp.</p>
+                <p class="description">Dữ liệu của bạn đã được lưu trữ an toàn.</p>
                 <button class="btn btn-primary" onclick="location.reload()">Làm lại khảo sát</button>
             </div>
         </div>
@@ -474,7 +470,7 @@ function renderResult() {
 
 async function submitToSheets() {
     const score = calculateScore();
-    const level = CONFIG.LEVELS.find(l => score >= l.min && score <= l.max)?.name || '';
+    const level = CONFIG.LEVELS.find(l => score >= l.min && score <= l.max)?.name || 'N/A';
     
     const data = {
         timestamp: new Date().toISOString(),
@@ -485,7 +481,6 @@ async function submitToSheets() {
         level: level
     };
 
-    // Split each question into its own column
     QUESTIONS.forEach(q => {
         const ans = state.answers[q.id];
         let displayAns = '';
@@ -499,15 +494,10 @@ async function submitToSheets() {
         data[`Q${q.id}`] = displayAns;
     });
 
-    if (CONFIG.SCRIPT_URL === 'https://script.google.com/macros/library/d/1mmy8_IgdJd2s1I9PzXP1385ZlWV6_xvkHOiHnCKliCA2hYDGKytV5-xL/1') {
-        console.log('Sheet URL not set, data:', data);
-        return;
-    }
-
     try {
         await fetch(CONFIG.SCRIPT_URL, {
             method: 'POST',
-            mode: 'no-cors', // standard for Apps Script web apps
+            mode: 'no-cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
@@ -517,5 +507,17 @@ async function submitToSheets() {
     }
 }
 
-// Initial render
-render();
+// Ensure the code runs after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize DOM elements
+    dom.main = document.getElementById('main-content');
+    dom.progressBar = document.getElementById('progress-bar');
+    dom.progressWrapper = document.getElementById('progress-bar-wrapper');
+
+    // Run the initial render
+    if (dom.main) {
+        render();
+    } else {
+        console.error("Critical Error: Main content container not found.");
+    }
+});
