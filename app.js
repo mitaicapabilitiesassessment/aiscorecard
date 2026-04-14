@@ -252,7 +252,7 @@ function renderIntro() {
     dom.main.innerHTML = `
         <div class="screen intro-screen text-center">
             <div class="card">
-                <h1>AI Capability Scorecard</h1>
+                <h1>AI Capability Assessment</h1>
                 <p class="description">
                     Artificial Intelligence (AI) is rapidly transforming the way organizations operate, with the potential to significantly enhance employee productivity, improve decision-making, and optimize daily workflows. As AI tools become increasingly integrated into workplace environments, understanding how employees use AI and how it impacts their performance is critical for organizations seeking to maximize efficiency and innovation.
                     <br><br>
