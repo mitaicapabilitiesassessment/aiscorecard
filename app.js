@@ -45,7 +45,7 @@ const QUESTIONS = [
     {
         id: 1,
         group: "Nhóm 1 — Mức độ sử dụng AI",
-        text: "Bạn sử dụng AI trong công việc với mức độ nào?",
+        text: "Bạn sử dụng AI trong công việc với tần suất như thế nào?",
         type: "single",
         options: [
             { text: "Không bao giờ", points: 0 },
@@ -82,11 +82,12 @@ const QUESTIONS = [
     {
         id: 4,
         group: "Nhóm 2 — Mức độ thành thạo AI",
-        text: "Bạn đánh giá mức độ thành thạo AI (Level 1: Mới bắt đầu; Level 2: Cơ bản; Level 3: Trung bình; Level 4: Thành thạo; Level 5: Chuyên gia)?",
+        text: "Bạn đánh giá mức độ thành thạo AI của mình ở mức nào?",
         type: "scale",
         min: 1,
         max: 5,
-        pointsPerScale: 1
+        pointsPerScale: 1,
+        hint: "💡 Level 1: Mới bắt đầu; Level 2: Cơ bản; Level 3: Trung bình; Level 4: Thành thạo; Level 5: Chuyên gia"
     },
     {
         id: 5,
@@ -106,7 +107,7 @@ const QUESTIONS = [
     {
         id: 6,
         group: "Nhóm 3 — Tác động đến hiệu suất",
-        text: "AI giúp tăng hiệu suất bao nhiêu?",
+        text: "AI giúp gia tăng hiệu suất như thế nào?",
         type: "single",
         options: [
             { text: "0-20%", points: 1 },
@@ -119,7 +120,7 @@ const QUESTIONS = [
     {
         id: 7,
         group: "Nhóm 3 — Tác động đến hiệu suất",
-        text: "Bạn tiết kiệm bao nhiêu thời gian?",
+        text: "Bạn tiết kiệm bao nhiêu thời gian khi ứng dụng AI vào công việc?",
         type: "single",
         options: [
             { text: "Không tiết kiệm", points: 0 },
@@ -132,8 +133,8 @@ const QUESTIONS = [
     },
     {
         id: 8,
-        group: "Nhóm 4 — AI mindset & innovation",
-        text: "Bạn chủ động tìm hiểu AI?",
+        group: "Nhóm 4 — AI Mindset & Innovation",
+        text: "Bạn có chủ động tìm hiểu AI?",
         type: "single",
         options: [
             { text: "Chưa bao giờ", points: 0 },
@@ -144,7 +145,7 @@ const QUESTIONS = [
     },
     {
         id: 9,
-        group: "Nhóm 4 — AI mindset & innovation",
+        group: "Nhóm 4 — AI Mindset & Innovation",
         text: "Bạn có chia sẻ AI cho đồng nghiệp?",
         type: "single",
         options: [
@@ -156,7 +157,7 @@ const QUESTIONS = [
     },
     {
         id: 10,
-        group: "Nhóm 4 — AI mindset & innovation",
+        group: "Nhóm 4 — AI Mindset & Innovation",
         text: "Bạn có đề xuất ứng dụng AI trong công việc?",
         type: "single",
         options: [
@@ -324,7 +325,7 @@ function renderQuestion() {
     if (q.type === 'single') {
         optionsHtml = `<div class="options-list">
             ${q.options.map((opt, i) => `
-                <div class="option-item ${currentAnswer === i ? 'selected' : ''}" onclick="selectOption(${q.id}, ${i})">
+                <div class="option-item ${currentAnswer === i ? 'selected' : ''}" onclick="selectOption(${q.id}, ${i}, this)">
                     ${opt.text}
                 </div>
             `).join('')}
@@ -333,7 +334,7 @@ function renderQuestion() {
         const selectedIndices = currentAnswer || [];
         optionsHtml = `<div class="options-list">
             ${q.options.map((opt, i) => `
-                <div class="option-item ${selectedIndices.includes(i) ? 'selected' : ''}" onclick="toggleOption(${q.id}, ${i})">
+                <div class="option-item ${selectedIndices.includes(i) ? 'selected' : ''}" onclick="toggleOption(${q.id}, ${i}, this)">
                     <div style="margin-right: 15px;">${selectedIndices.includes(i) ? '✅' : '⬜'}</div>
                     ${opt.text}
                 </div>
@@ -342,7 +343,7 @@ function renderQuestion() {
     } else if (q.type === 'scale') {
         optionsHtml = `<div class="options-list" style="grid-template-columns: repeat(${q.max}, 1fr);">
             ${Array.from({length: q.max}, (_, i) => i + 1).map(val => `
-                <div class="option-item text-center ${currentAnswer === val ? 'selected' : ''}" onclick="selectOption(${q.id}, ${val})" style="justify-content: center;">
+                <div class="option-item text-center ${currentAnswer === val ? 'selected' : ''}" onclick="selectOption(${q.id}, ${val}, this)" style="justify-content: center;">
                     ${val}
                 </div>
             `).join('')}
@@ -372,27 +373,50 @@ function renderQuestion() {
     `;
 }
 
-function selectOption(qId, value) {
-    const newAnswers = { ...state.answers, [qId]: value };
-    setState({ answers: newAnswers });
+function selectOption(qId, value, element) {
+    state.answers[qId] = value;
+    
+    // Smoothly update UI without full re-render to prevent flashing
+    const parent = element.parentElement;
+    parent.querySelectorAll('.option-item').forEach(item => {
+        item.classList.remove('selected');
+    });
+    element.classList.add('selected');
+
+    // Update the Next button state
+    const nextBtn = document.querySelector('.btn-primary');
+    if (nextBtn) nextBtn.disabled = false;
 }
 
-function toggleOption(qId, index) {
+function toggleOption(qId, index, element) {
     let current = state.answers[qId] || [];
     if (current.includes(index)) {
         current = current.filter(i => i !== index);
+        element.classList.remove('selected');
     } else {
         current = [...current, index];
+        element.classList.add('selected');
     }
-    const newAnswers = { ...state.answers, [qId]: current };
-    setState({ answers: newAnswers });
+    state.answers[qId] = current;
+    
+    // Update checkmark icon inside the element
+    const icon = element.querySelector('div');
+    if (icon) {
+        icon.innerText = current.includes(index) ? '✅' : '⬜';
+    }
+
+    // Enable/disable next button based on selection
+    const nextBtn = document.querySelector('.btn-primary');
+    if (nextBtn) nextBtn.disabled = current.length === 0;
 }
 
 function nextQuestion() {
     if (state.currentQuestionIndex < QUESTIONS.length - 1) {
         setState({ currentQuestionIndex: state.currentQuestionIndex + 1 });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         setState({ step: 'result' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         submitToSheets();
     }
 }
@@ -400,8 +424,10 @@ function nextQuestion() {
 function prevQuestion() {
     if (state.currentQuestionIndex > 0) {
         setState({ currentQuestionIndex: state.currentQuestionIndex - 1 });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
         setState({ step: 'info' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
