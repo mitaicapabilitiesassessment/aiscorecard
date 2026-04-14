@@ -253,9 +253,9 @@ function renderIntro() {
                 <h1>AI Capability Scorecard</h1>
                 <p class="description">Đo lường năng lực sử dụng AI của bạn để tối ưu hiệu quả công việc và định hướng tương lai.</p>
                 <div class="benefits" style="text-align: left; margin-bottom: 2rem;">
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Đánh giá được xây dựng bởi Massachusetts Institute of Technology</p>
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Bộ câu hỏi khảo sát thuộc nghiên cứu khoa học đăng trên tập chí MDPI</p>
-                    <p>🧑‍🏫Thuộc nghiên cứu đánh giá tác động của AI được thực hiện bởi 3 nhà nghiên cứu Sabina-Cristiana Necula, Doina Fotache và Emanuel Rieder</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫This survey made by Universitatea „Alexandru Ioan Cuza” din Iași</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Survey questionnaire used in a scientific study published in an MDPI journal</p>
+                    <p>🧑‍🏫Part of a study evaluating the impact of AI conducted by three researchers: Sabina-Cristiana Necula, Doina Fotache, and Emanuel Rieder.</p>
                 </div>
                 <button class="btn btn-primary w-100" onclick="setState({ step: 'info' })">Bắt đầu khảo sát</button>
             </div>
