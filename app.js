@@ -204,7 +204,8 @@ const QUESTIONS = [
             { text: "RAG / Tìm kiếm tài liệu nội bộ", points: 2 },
             { text: "Fine-tuning / Huấn luyện mô hình riêng", points: 2 },
             { text: "Multimodal AI (kết hợp văn bản, ảnh, âm thanh)", points: 2 },
-            { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 }
+            { text: "Phân tích dữ liệu / Dự báo bằng AI", points: 2 },
+            { text: "Chưa thực hiện hoạt động nào", points: 0, exclusive: true }
         ]
     }
 ];
@@ -252,7 +253,7 @@ function renderIntro() {
     dom.main.innerHTML = `
         <div class="screen intro-screen text-center">
             <div class="card">
-                <h1>AI Capability Assessment</h1>
+                <h1>AI Capability Scorecard</h1>
                 <p class="description">
                     Artificial Intelligence (AI) is rapidly transforming the way organizations operate, with the potential to significantly enhance employee productivity, improve decision-making, and optimize daily workflows. As AI tools become increasingly integrated into workplace environments, understanding how employees use AI and how it impacts their performance is critical for organizations seeking to maximize efficiency and innovation.
                     <br><br>
@@ -332,13 +333,32 @@ function renderQuestion() {
         </div>`;
     } else if (q.type === 'multiple') {
         const selectedIndices = currentAnswer || [];
+        
+        // Logic for Question 12 hide/show
+        let visibleOptions = q.options;
+        if (q.id === 12) {
+            const isNoneSelected = selectedIndices.some(idx => q.options[idx].exclusive);
+            const isOtherSelected = selectedIndices.some(idx => !q.options[idx].exclusive);
+            
+            if (isNoneSelected) {
+                // If None is selected, only show None
+                visibleOptions = q.options.filter(opt => opt.exclusive);
+            } else if (isOtherSelected) {
+                // If others are selected, hide None
+                visibleOptions = q.options.filter(opt => !opt.exclusive);
+            }
+        }
+
         optionsHtml = `<div class="options-list">
-            ${q.options.map((opt, i) => `
-                <div class="option-item ${selectedIndices.includes(i) ? 'selected' : ''}" onclick="toggleOption(${q.id}, ${i}, this)">
-                    <div style="margin-right: 15px;">${selectedIndices.includes(i) ? '✅' : '⬜'}</div>
-                    ${opt.text}
-                </div>
-            `).join('')}
+            ${visibleOptions.map((opt, i) => {
+                const actualIndex = q.options.indexOf(opt);
+                return `
+                    <div class="option-item ${selectedIndices.includes(actualIndex) ? 'selected' : ''}" onclick="toggleOption(${q.id}, ${actualIndex}, this)">
+                        <div style="margin-right: 15px;">${selectedIndices.includes(actualIndex) ? '✅' : '⬜'}</div>
+                        ${opt.text}
+                    </div>
+                `;
+            }).join('')}
         </div>`;
     } else if (q.type === 'scale') {
         optionsHtml = `<div class="options-list" style="grid-template-columns: repeat(${q.max}, 1fr);">
@@ -389,25 +409,26 @@ function selectOption(qId, value, element) {
 }
 
 function toggleOption(qId, index, element) {
+    const q = QUESTIONS.find(question => question.id === qId);
     let current = state.answers[qId] || [];
+    const option = q.options[index];
+
     if (current.includes(index)) {
         current = current.filter(i => i !== index);
         element.classList.remove('selected');
     } else {
-        current = [...current, index];
-        element.classList.add('selected');
+        // Mutual exclusivity logic
+        if (option.exclusive) {
+            current = [index]; // If exclusive picked, clear others
+        } else {
+            // If non-exclusive picked, remove any exclusive options
+            current = [...current.filter(i => !q.options[i].exclusive), index];
+        }
     }
     state.answers[qId] = current;
     
-    // Update checkmark icon inside the element
-    const icon = element.querySelector('div');
-    if (icon) {
-        icon.innerText = current.includes(index) ? '✅' : '⬜';
-    }
-
-    // Enable/disable next button based on selection
-    const nextBtn = document.querySelector('.btn-primary');
-    if (nextBtn) nextBtn.disabled = current.length === 0;
+    // Re-render question to handle hiding/showing of other options
+    renderQuestion();
 }
 
 function nextQuestion() {
