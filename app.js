@@ -4,35 +4,35 @@ const CONFIG = {
     LEVELS: [
     { 
         min: 0, max: 10, name: 'AI Beginner', 
-        desc: 'Chưa sử dụng AI',
+        desc: 'Cấp độ: Chưa sử dụng AI',
         assessment: 'Bạn đang ở vạch xuất phát. Bạn có thể chưa từng tương tác với các mô hình ngôn ngữ lớn hoặc mới chỉ nghe nói về AI mà chưa thực hành. Tiềm năng tăng năng suất của bạn còn rất lớn.',
         advice: 'Bạn mới bắt đầu hành trình khám phá AI. Hãy thử nghiệm các câu hỏi cơ bản trên trên các công cụ AI phổ biến hiện nay như ChatGPT, Gemini hoặc Claude để thấy khả năng của chúng.',
         actionPlan: 'Tạo tài khoản miễn phí trên ChatGPT hoặc Claude.ai. Dành 10 phút mỗi ngày để hỏi bất kỳ điều gì bạn thắc mắc. Hãy bắt đầu bằng câu lệnh: "Giải thích cho tôi về [chủ đề công việc] một cách đơn giản".'
     },
     { 
         min: 11, max: 20, name: 'AI Explorer', 
-        desc: 'Bắt đầu khám phá AI',
+        desc: 'Cấp độ: Bắt đầu khám phá AI',
         assessment: 'Bạn đã vượt qua rào cản tâm lý ban đầu. Bạn biết cách đặt câu hỏi cho AI nhưng phong cách sử dụng còn ngẫu hứng, kết quả đôi khi chưa nhất quán. Bạn đang dùng AI như một công cụ tìm kiếm thay thế.',
         advice: 'Bạn đã bước đầu làm quen với AI. Hãy thử ứng dụng AI vào việc soạn thảo email hoặc tóm tắt tài liệu để tiết kiệm thời gian hàng ngày.',
         actionPlan: 'Biến AI thành trợ lý cá nhân. Khi cần viết email, hãy dùng prompt: "Soạn giúp tôi một email lịch sự về [nội dung], giọng văn chuyên nghiệp". Thực hành tóm tắt các bài báo dài thành 3 gạch đầu dòng.'
     },
     { 
         min: 21, max: 35, name: 'AI Practitioner', 
-        desc: 'Sử dụng AI thường xuyên',
+        desc: 'Cấp độ: Sử dụng AI thường xuyên',
         assessment: 'Bạn đã tích hợp AI vào guồng quay công việc hàng ngày. Bạn hiểu rằng AI không phải lúc nào cũng đúng và bắt đầu chỉnh sửa câu trả lời. Tuy nhiên, bạn vẫn đang sử dụng các prompt đơn giản, chưa khai thác hết chiều sâu.',
         advice: 'Bạn sử dụng AI khá thành thạo. Hãy tìm hiểu sâu về kỹ thuật viết Prompt (Prompt Engineering) để nâng cao chất lượng đầu ra.',
         actionPlan: 'Học cấu trúc prompt: "Vai trò - Ngữ cảnh - Yêu cầu - Định dạng đầu ra". Ví dụ: "Bạn là chuyên viên phân tích dữ liệu cấp cao. Hãy phân tích ưu nhược điểm của dự án A (dữ liệu đính kèm). Trình bày dưới dạng bảng SWOT và đề xuất 3 hành động tiếp theo".'
     },
     { 
         min: 36, max: 50, name: 'AI Advanced', 
-        desc: 'Sử dụng AI chuyên sâu',
+        desc: 'Cấp độ: Sử dụng AI chuyên sâu',
         assessment: 'Bạn không chỉ đặt câu hỏi hay mà còn biết cách cung cấp dữ liệu và ngữ cảnh phức tạp cho AI. Bạn có tư duy phản biện tốt với câu trả lời của AI. Bạn là người giải quyết vấn đề hiệu quả trong tập thể.',
         advice: 'Bạn có kỹ năng AI chuyên sâu. Hãy bắt đầu xây dựng các quy trình tự động hóa (Workflow) để tối ưu các tác vụ phức tạp.',
         actionPlan: 'Kết hợp AI với các công cụ tự động hóa khác (Zapier, Make.com, n8n). Thử thách: Tạo một workflow tự động đọc file báo cáo hàng tuần, yêu cầu AI tóm tắt nội dung và gửi trực tiếp nhận định qua Email cho Quản lý.'
     },
     { 
         min: 51, max: 60, name: 'AI Leader', 
-        desc: 'Dẫn đầu xu hướng ứng dụng AI',
+        desc: 'Cấp độ: Dẫn đầu xu hướng ứng dụng AI',
         assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi ro của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
         advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
         actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
@@ -91,7 +91,7 @@ const QUESTIONS = [
     {
         id: 5,
         group: "Nhóm 2 — Mức độ thành thạo AI",
-        text: "Bạn có thể làm gì với AI? (Chọn nhiều)",
+        text: "Bạn có thể làm gì với AI?",
         type: "multiple",
         options: [
             { text: "Viết email", points: 1 },
@@ -136,7 +136,7 @@ const QUESTIONS = [
         text: "Bạn chủ động tìm hiểu AI?",
         type: "single",
         options: [
-            { text: "Không", points: 0 },
+            { text: "Chưa bao giờ", points: 0 },
             { text: "Thỉnh thoảng", points: 2 },
             { text: "Thường xuyên", points: 4 },
             { text: "Luôn luôn", points: 5 }
@@ -148,7 +148,7 @@ const QUESTIONS = [
         text: "Bạn có chia sẻ AI cho đồng nghiệp?",
         type: "single",
         options: [
-            { text: "Không", points: 0 },
+            { text: "Chưa bao giờ", points: 0 },
             { text: "Thỉnh thoảng", points: 2 },
             { text: "Thường xuyên", points: 4 },
             { text: "Luôn luôn", points: 5 }
@@ -160,8 +160,8 @@ const QUESTIONS = [
         text: "Bạn có đề xuất ứng dụng AI trong công việc?",
         type: "single",
         options: [
-            { text: "Không", points: 0 },
-            { text: "Ít", points: 2 },
+            { text: "Chưa bao giờ", points: 0 },
+            { text: "Rất Ít", points: 2 },
             { text: "Thỉnh thoảng", points: 3 },
             { text: "Thường xuyên", points: 5 }
         ]
@@ -169,7 +169,7 @@ const QUESTIONS = [
     {
         id: 11,
         group: "Nhóm 5 — AI nâng cao",
-        text: "Bạn đã sử dụng AI nào? (Mỗi công cụ 1 điểm)",
+        text: "Bạn đã sử dụng công cụ AI nào?",
         type: "multiple",
         options: [
             { text: "ChatGPT", points: 1 },
@@ -191,7 +191,7 @@ const QUESTIONS = [
     {
         id: 12,
         group: "Nhóm 5 — AI nâng cao",
-        text: "Bạn đã làm gì với AI? (Mỗi hoạt động 2 điểm)",
+        text: "Bạn đã làm gì với AI?",
         type: "multiple",
         options: [
             { text: "Automation (tự động hóa tác vụ đơn lẻ)", points: 2 },
@@ -252,14 +252,18 @@ function renderIntro() {
         <div class="screen intro-screen text-center">
             <div class="card">
                 <h1>AI Capability Scorecard</h1>
-                <p class="description">Đo lường năng lực sử dụng AI của bạn để tối ưu hiệu quả công việc và định hướng tương lai.</p>
+                <p class="description">
+                    Artificial Intelligence (AI) is rapidly transforming the way organizations operate, with the potential to significantly enhance employee productivity, improve decision-making, and optimize daily workflows. As AI tools become increasingly integrated into workplace environments, understanding how employees use AI and how it impacts their performance is critical for organizations seeking to maximize efficiency and innovation.
+                    <br><br>
+                    This survey aims to assess employees’ current AI usage, proficiency levels, and the perceived impact of AI on work productivity. The results will help identify different AI capability levels across the organization and support the development of targeted training and AI adoption strategies to improve overall performance and future readiness.
+                </p>
                 <div class="benefits" style="text-align: left; margin-bottom: 2rem;">
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫This survey made by Universitatea „Alexandru Ioan Cuza” din Iași</p>
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Survey questionnaire used in a scientific study published in an MDPI journal</p>
-                    <p style="margin-bottom: 0.5rem;">🧑‍🏫Part of a study evaluating the impact of AI conducted by three researchers: Sabina-Cristiana Necula, Doina Fotache, and Emanuel Rieder.</p>
-                    <p>🧑‍🏫The survey has been localized and refined to suit businesses in Vietnam.</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫 This survey made by Universitatea „Alexandru Ioan Cuza” din Iași</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫 Survey questionnaire used in a scientific study published in an MDPI journal</p>
+                    <p style="margin-bottom: 0.5rem;">🧑‍🏫 Part of a study evaluating the impact of AI conducted by three researchers: Sabina-Cristiana Necula, Doina Fotache, and Emanuel Rieder.</p>
+                    <p>🧑‍🏫 All questions in this survey have been localized and refined to suit businesses in Vietnam.</p>
                 </div>
-                <button class="btn btn-primary w-100" onclick="setState({ step: 'info' })">Bắt đầu khảo sát</button>
+                <button class="btn btn-primary w-100" onclick="setState({ step: 'info' })">Start Survey</button>
             </div>
         </div>
     `;
@@ -437,7 +441,7 @@ function renderResult() {
                     <span style="font-size: 0.8rem; font-weight: 500;">/ 60 ĐIỂM</span>
                 </div>
                 <div class="level-badge">${level.name}</div>
-                <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 700; color: var(--primary-color);">${level.desc}</p>
+                <p style="margin-top: 1.5rem; font-size: 1.5rem; font-weight: 700; color: var(--primary-color);">${level.desc}</p>
                 
                 <div class="result-details" style="text-align: left; margin-top: 2rem;">
                     <div class="result-section" style="margin-bottom: 1.5rem;">
