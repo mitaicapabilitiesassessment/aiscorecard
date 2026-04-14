@@ -1,6 +1,6 @@
 const CONFIG = {
     // Replace with your Google Apps Script Web App URL
-    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbz3n2T_1f-jAifp3-tInZp8Or2BdcDu-bHaGHApXtzM-521xQwvDI011mzGcH4uVdsX_g/exec',
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwN2ISbzjZuW-S17Ued27iwhMEdjDZVOFujS_EnzW5EDYCnXel0gvxJcfZ9_khFB4vNrg/exec',
     LEVELS: [
     { 
         min: 0, max: 10, name: 'AI Beginner', 
@@ -33,7 +33,7 @@ const CONFIG = {
     { 
         min: 51, max: 60, name: 'AI Leader', 
         desc: 'Cấp độ: Dẫn đầu xu hướng ứng dụng AI',
-        assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi ro của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
+        assessment: 'Bạn là người tiên phong trong tổ chức. Bạn hiểu rõ giới hạn và rủi rổ của AI cũng như cách tối ưu nó cho từng vị trí công việc cụ thể. Bạn nhìn AI như một đối tác chiến lược thay vì một công cụ đơn thuần.',
         advice: 'Chúc mừng chuyên gia! Bạn nên dẫn dắt đội nhóm, chia sẻ kinh nghiệm và thiết kế chiến lược ứng dụng AI toàn diện cho doanh nghiệp.',
         actionPlan: 'Xây dựng "Thư viện Prompt Mẫu" cho phòng ban. Tổ chức các buổi "AI Office Hour" hàng tuần để giải đáp thắc mắc cho đồng nghiệp. Nghiên cứu các mô hình AI tùy chỉnh (Custom GPTs) phục vụ nhu cầu đặc thù của công ty.'
     }
@@ -178,7 +178,7 @@ const QUESTIONS = [
             { text: "Gemini", points: 1 },
             { text: "DeepSeek", points: 1 },
             { text: "Copilot", points: 1 },
-            { text: "Perplexity", points: 1 },
+            { text: "Perplexity /NotebookLM", points: 1 },
             { text: "Midjourney / DALL-E 3", points: 1 },
             { text: "Runway / Descript", points: 1 },
             { text: "ElevenLabs / Suno", points: 1 },
